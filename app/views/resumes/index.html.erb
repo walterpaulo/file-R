@@ -9,8 +9,8 @@
 <%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
 <br />
 <br />
-<%= link_to "Principal", resumes_path%>
-<div data-controllers="hello"></div>
+<%= link_to "Principal", resumes_path %>
+
 <table class = "table table-bordered table-striped">
    <thead>
       <tr>
@@ -26,10 +26,14 @@
          <tr>
             <td><%= resume.name %></td>
             <td><%= link_to "Download Resume", resume.attachment_url %></td>
-            <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+            <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", 
+            data: {controller: 'sweetalert',
+               action: 'click->sweetalert#showAlert',
+               sweetalert_title_value: 'Tem certeza?'} %></td>
          </tr>
          
       <% end %>
+      
    </tbody>
 
    

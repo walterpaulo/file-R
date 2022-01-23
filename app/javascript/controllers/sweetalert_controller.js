@@ -3,12 +3,29 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="sweetalert"
 export default class extends Controller {
+
+  static values = { title: String }
+
   connect() {
-    console.log('Conected!')
+    this.redirect = false;
   }
   showAlert(event){
+    if (this.redirect) return;
+
     event.stopImmediatePropagation();
     event.preventDefault();
-    Swal.fire('Any fool can use a computer')
+    Swal.fire({
+      title: this.titleValue,
+      showDenyButton: true,
+      showConfirmButton: false,
+      showCancelButton: true,
+      denyButtonText: 'Sim',
+      cancelButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isDenied) {
+        this.redirect = true
+        this.element.click();
+      }
+    })
   }
 }
