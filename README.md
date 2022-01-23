@@ -22,4 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# Update File
+# Test File
+
+```
+git clone https://github.com/walterpaulo/file-R.git
+```
+```
+cd file-r/
+```
+```
+rake db:migrate
+```
+```
+rails server
+```
