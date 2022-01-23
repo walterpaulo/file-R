@@ -28,6 +28,9 @@ Things you may want to cover:
 git clone https://github.com/walterpaulo/file-R.git
 ```
 ```
+bundle
+```
+```
 cd file-r/
 ```
 ```
@@ -35,4 +38,9 @@ rake db:migrate
 ```
 ```
 rails server
+```
+
+#### Error Command "webpack" not found
+```
+bundle exec rails webpacker:install
 ```
